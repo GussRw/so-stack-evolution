@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lenguajes por experiencia y rol</title>
+  <meta name="description" content="Adopción de los 10 lenguajes más usados por rango de experiencia profesional y segmento de rol. Stack Overflow Developer Survey 2024.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="pagina">
+    <header class="encabezado">
+      <h1>¿Qué lenguajes usan desarrollo y liderazgo según sus años de experiencia?</h1>
+      <p class="subtitulo">
+        % de encuestados que trabajaron con cada lenguaje en el último año, por rango de experiencia profesional
+        (<code>YearsCodePro</code>) y segmento de rol. Fuente: Stack Overflow (2024), <em>Developer Survey</em>,
+        vía Kaggle (berkayalan, 2024).
+      </p>
+    </header>
+
+    <section class="controles" aria-label="Filtros">
+      <label class="control">
+        <span class="control-etiqueta">País</span>
+        <select id="filtro-pais"></select>
+      </label>
+      <fieldset class="control">
+        <legend class="control-etiqueta">Segmento</legend>
+        <div class="segmentado" id="filtro-segmento">
+          <label><input type="radio" name="segmento" value="ambos" checked><span>Ambos</span></label>
+          <label><input type="radio" name="segmento" value="dev"><span>Desarrollo</span></label>
+          <label><input type="radio" name="segmento" value="lider"><span>Liderazgo</span></label>
+        </div>
+      </fieldset>
+    </section>
+
+    <div class="leyenda" id="leyenda" aria-label="Leyenda"></div>
+
+    <section class="paneles" id="paneles" aria-live="polite">
+      <p class="estado">Cargando datos…</p>
+    </section>
+
+    <details class="tabla-datos">
+      <summary>Ver los datos de la selección como tabla</summary>
+      <div id="tabla" class="tabla-contenedor"></div>
+    </details>
+
+    <footer class="nota">
+      <h2>Nota metodológica</h2>
+      <ul>
+        <li><strong>Denominador:</strong> encuestados del grupo (país × segmento × rango) que respondieron la pregunta
+          <code>LanguageHaveWorkedWith</code>; quien la dejó en blanco no cuenta como «no usa».</li>
+        <li><strong>Segmentos</strong> según el rol principal (<code>DevType</code>): <em>Liderazgo y dirección</em> =
+          Engineering manager o Senior Executive; <em>Desarrollo</em> = roles «Developer, …».</li>
+        <li><strong>Intervalos:</strong> Wilson al 95% (en el tooltip). Las celdas con menos de 30 encuestados se
+          muestran en gris y sin porcentaje.</li>
+        <li><strong>Países:</strong> se incluyen los que tienen al menos 500 encuestados de desarrollo con experiencia
+          válida. El grupo de liderazgo es unas 20 veces menor, por lo que en la vista por país la mayoría de sus
+          celdas queda por debajo del umbral.</li>
+        <li><strong>Color:</strong> la escala va de 0% a 100% en todas las vistas, para que los tonos sean comparables
+          entre países y segmentos.</li>
+        <li>Corte transversal: cada rango agrupa a personas distintas; no son trayectorias individuales.</li>
+      </ul>
+      <p class="creditos">
+        Gustavo Peralta Vázquez · Visualización de Datos, MPIA, Instituto Tecnológico de Aguascalientes ·
+        Hecho con <a href="https://observablehq.com/plot/">Observable Plot</a> ·
+        <a href="https://github.com/gussrw/so-stack-evolution">Código y datos</a>
+      </p>
+    </footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Probado con Python 3.12 en Linux
+pandas==3.0.2
+numpy==2.4.4
+matplotlib==3.10.8
+seaborn==0.13.2
+geopandas==1.2.0
+pyogrio==0.13.0
+shapely==2.2.0
+pycountry==26.2.16
+kagglehub==1.0.2
+jupyter==1.1.1
+nbconvert==7.17.2
+ipykernel
+# Solo para pruebas
+pytest==9.1.1
+statsmodels==0.15.0
